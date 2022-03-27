@@ -11,6 +11,7 @@ justify-content: center;" >
 ![Discord](https://img.shields.io/discord/956145052386725898)
 </div>
 
+El proyecto usa [svelte.js](https://svelte.dev/)
 
 Api de mercadolibre para consultar por item: https://developers.mercadolibre.com.ar/es_ar/items-y-busquedas
 
