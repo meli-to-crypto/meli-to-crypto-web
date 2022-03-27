@@ -21,6 +21,7 @@
   // then calculate the price in the selected crypto
   function convertor() {
     console.log(itemUrl);
+    console.log(selectedCoin);
     if (isValidUrl) {
       // we start loading animation
       loading = true;
@@ -34,13 +35,24 @@
         .then((res) => {
           itemPriceInPesos = res[0].body.price;
           console.log("El precio es: ", itemPriceInPesos);
-          exhangeRate = fetch(
-            `https://beta.belo.app/public/price`
-          ).then((res) => res.json());
-        })
-        .then(() => {
-          // extract the exchange rate for the selected coin
-
+          exhangeRate = fetch("https://beta.belo.app/public/price")
+            .then((res) => res.json())
+            .then((res) => {
+              // filter res by object containing pairCode == 'selectedCoin/ARS'
+              exhangeRate = res.filter(
+                (item) => item.pairCode === `${selectedCoin}/ARS`
+              )[0].bid;
+              console.log(res);
+              console.log(exhangeRate);
+              // we calculate the price in the selected crypto
+              itemPriceInCrypto = itemPriceInPesos / exhangeRate;
+              console.log(
+                `El precio en crypto es ${itemPriceInPesos} / ${exhangeRate} = ${itemPriceInCrypto}`
+              );
+              // we stop loading animation
+              loading = false;
+              alert('El precio en pesos es: ' + itemPriceInPesos + ' y el precio en crypto es: ' + itemPriceInCrypto.toFixed( 2 ) + ' '+ selectedCoin);
+            });
         });
     } else {
       invalidUrl = true;
@@ -60,7 +72,7 @@
     // regex to extract the item id from the url
     const regex = /[0-9]{8,}/gm;
     itemId = regex.exec(itemUrl)[0];
-    console.log('El item id es: ',itemId);
+    console.log("El item id es: ", itemId);
     return itemId;
   }
 </script>
