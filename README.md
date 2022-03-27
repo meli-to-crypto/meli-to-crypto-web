@@ -2,6 +2,15 @@
 
 Web para ver precios de mercadolibre en crypto o usar la calculadora para cambiar precios de otros sitios.
 
+<div style="display: flex;
+justify-content: center;" >
+  
+![Netlify](https://img.shields.io/netlify/2bf8007b-6228-4067-8e10-918f398f1523) 
+![GitHub Repo stars](https://img.shields.io/github/stars/meli-to-crypto/meli-to-crypto-web?label=Stars) 
+![Contributor](https://img.shields.io/github/contributors/meli-to-crypto/meli-to-crypto-web)
+![Discord](https://img.shields.io/discord/956145052386725898)
+</div>
+
 
 Api de mercadolibre para consultar por item: https://developers.mercadolibre.com.ar/es_ar/items-y-busquedas
 
