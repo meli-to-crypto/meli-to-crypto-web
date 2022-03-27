@@ -40,7 +40,7 @@
         })
         .then(() => {
           // extract the exchange rate for the selected coin
-          
+
         });
     } else {
       invalidUrl = true;
@@ -77,7 +77,7 @@
       placeholder="https://www.mercadolibre.com.ar/apple-iphone-..."
       type="text"
     />
-    <select name="coins" id="coins">
+    <select bind:value={selectedCoin} name="coins" id="coins">
       {#each coins as coin}
         <option value={coin}>{coin}</option>
       {/each}
